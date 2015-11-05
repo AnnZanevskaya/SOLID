@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>NuGet.Client.BaseTypes</id>
+    <version>0.1.1</version>
+    <title>NuGet.Client.BaseTypes</title>
+    <authors>NuGet</authors>
+    <owners>NuGet</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NuGet v3.0.0 core types</description>
+    <dependencies>
+      <dependency id="NuGet.Versioning" version="1.0.3" />
+      <dependency id="Newtonsoft.Json" version="6.0.4" />
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AnalyzerPowerPack</id>
+    <version>1.0.1</version>
+    <title />
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://go.microsoft.com/fwlink/?LinkId=529443</licenseUrl>
+    <projectUrl>http://msdn.com/roslyn</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>General language rules implemented as analyzers using the .NET Compiler Platform ("Roslyn")</description>
+    <summary>Microsoft Analyzer PowerPack</summary>
+    <releaseNotes>VS 2015 Version of Microsoft .NET Compiler Platform (Roslyn)</releaseNotes>
+    <copyright />
+    <language>en-US</language>
+    <tags>Roslyn CodeAnalysis Compiler CSharp VB VisualBasic Parser Scanner Lexer Emit CodeGeneration Metadata IL Compilation Scripting Syntax Semantics analyzers</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+</package>
