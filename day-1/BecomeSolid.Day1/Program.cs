@@ -38,6 +38,27 @@ namespace BecomeSolid.Day1
                     if (update.Message.Type == MessageType.TextMessage)
                     {
                         var inputMessage = update.Message.Text;
+                        if (inputMessage.StartsWith("/currency"))
+                        {
+                            string url = string.Format("http://api.fixer.io/latest?base=RUB&symbols=USD,GBP&callback=?");
+                            WebRequest request = WebRequest.Create(url);
+                            WebResponse response = request.GetResponse();
+                            using (var streamReader = new StreamReader(response.GetResponseStream()))
+                            {
+                                string responseString = streamReader.ReadToEnd();
+                                Console.WriteLine(responseString);
+                                JObject joResponse = JObject.Parse(responseString);
+                                JObject baseCurrency = (JObject)joResponse["base"];
+                                double temp = (double)baseCurrency["temp"];
+                                JObject date = (JObject)joResponse["date"];
+                                //string description = (string)weather["description"];
+                                string currency = (string)joResponse["USD"];
+
+                                var message = "For " + baseCurrency + " " + "currency" + currency + " date " +date;
+                                Console.WriteLine(message);
+                                
+                            }
+                        }
                         if (inputMessage.StartsWith("/weather"))
                         {
                             var messageParts = inputMessage.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
