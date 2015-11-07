@@ -5,6 +5,7 @@ using System.Net;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using BecomeSolid.Day1.Entity;
 
 namespace BecomeSolid.Day1
 {
@@ -13,10 +14,12 @@ namespace BecomeSolid.Day1
         public string Url { get; private set; }
         public IEntity Entity { get; private set; }
         public bool CommandExist { get; private set; }
+
         private readonly List<string> commandsList = new List<string>()
             {
                 "/weather",
-                "/currency"
+                "/currency",
+                "/ai"
             };
         // + нужно что-то связанное с Url.. если передали Url, используем, нет, берем по умолчанию
         // + для команд - значение по умолчанию, передали - используем, нет, по умолчанию
@@ -42,6 +45,11 @@ namespace BecomeSolid.Day1
                         "https://query.yahooapis.com/v1/public/yql?q=select+*+from+yahoo.finance.xchange+where+pair+=+%22{0}BYR%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=",
                         currency);
                 Entity = new CurrencyEntity();
+            }
+            else if (message.StartsWith(commandsList[2]))
+            {
+                Url = messageParts.Length == 1 ? "your name" : messageParts.Skip(1).First(); //прикидываемся, что команда это url - ниоч
+                Entity = new AIEntity();                            
             }
             else
                 CommandExist = false;

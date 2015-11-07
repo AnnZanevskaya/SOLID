@@ -28,5 +28,9 @@ namespace BecomeSolid.Day1
                return message;
            }
         }
+        public string GetInfo(string response)
+        {
+            return response;
+        }
     }
 }

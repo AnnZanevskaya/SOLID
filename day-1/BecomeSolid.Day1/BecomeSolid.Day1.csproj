@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\AIEntity.cs" />
     <Compile Include="Entity\CurrencyEntity.cs" />
     <Compile Include="Info\CurrencyInfo.cs" />
     <Compile Include="Entity\IEntity.cs" />

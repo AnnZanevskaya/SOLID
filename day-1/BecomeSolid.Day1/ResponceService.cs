@@ -21,13 +21,17 @@ namespace BecomeSolid.Day1
         }
 
         public string GetResponse()
-        {        
-            WebRequest request = WebRequest.Create(Url);
-            WebResponse response = request.GetResponse();
-
-            string info = entity.GetInfo(response);
-
+        {
+            string info = String.Empty;
+            if (Url.StartsWith("http"))
+            {
+                WebRequest request = WebRequest.Create(Url);
+                WebResponse response = request.GetResponse();
+                info = entity.GetInfo(response);
+            }
+            else
+                info = entity.GetInfo(Url);
             return info;
-        } 
+        }
     }
 }

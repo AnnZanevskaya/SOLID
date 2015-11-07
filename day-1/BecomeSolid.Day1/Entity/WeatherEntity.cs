@@ -25,10 +25,16 @@ namespace BecomeSolid.Day1
                 string cityName = (string)joResponse["name"];
 
                 Console.WriteLine(string.Format("temp is: {0}", temp));
-                string messange = "In " + cityName + " " + description + " and the temperature is " +
+                string message = "In " + cityName + " " + description + " and the temperature is " +
                                   temp.ToString("+#;-#") + "°C";
-                return messange;
+                return message;
             }
+        
         }
+
+       public string GetInfo(string response)
+       {
+           return response;
+       }
     }
 }

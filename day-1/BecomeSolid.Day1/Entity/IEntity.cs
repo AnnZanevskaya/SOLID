@@ -10,5 +10,6 @@ namespace BecomeSolid.Day1
     public interface IEntity
     {
         string GetInfo(WebResponse response);
+        string GetInfo(string response);
     }
 }
