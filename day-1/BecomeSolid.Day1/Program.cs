@@ -40,53 +40,20 @@ namespace BecomeSolid.Day1
                         var inputMessage = update.Message.Text;
                         if (inputMessage.StartsWith("/currency"))
                         {
-                            //string url = string.Format("http://api.fixer.io/latest?base=RUB&symbols=USD,GBP&callback=?");
                             string url = String.Format("https://query.yahooapis.com/v1/public/yql?q=select+*+from+yahoo.finance.xchange+where+pair+=+%22USDBYR%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=");        
-                            WebRequest request = WebRequest.Create(url);
-                            WebResponse response = request.GetResponse();
-                            using (var streamReader = new StreamReader(response.GetResponseStream()))
-                            {
-                                string responseString = streamReader.ReadToEnd();
-                                Console.WriteLine(responseString);
-                                JObject joResponse = JObject.Parse(responseString);
-                                JObject query = (JObject)joResponse["query"];
-                                JObject results = (JObject)query["results"];
-                                JObject rate = (JObject)results["rate"];
-                                string name = (string)rate["Name"];
-                                string currency = (string)rate["Rate"];
-                                var message = "For "+ name + " currency is " + currency;
-                                var t = await bot.SendTextMessage(update.Message.Chat.Id, message);
-                                Console.WriteLine("Echo Message: {0}", name);
-                            }
+                            ResponceService service = new ResponceService(inputMessage, url, new CurrencyEntity());
+                            var message = service.GetResponse();
+                            var t = await bot.SendTextMessage(update.Message.Chat.Id, message);
                         }
-                        if (inputMessage.StartsWith("/weather"))
+                        else if (inputMessage.StartsWith("/weather"))
                         {
                             var messageParts = inputMessage.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
                             var city = messageParts.Length == 1 ? "Minsk" : messageParts.Skip(1).First();
                             WebUtility.UrlEncode(city);
                             string url = string.Format("http://api.openweathermap.org/data/2.5/weather?q={0}&APPID={1}&units=metric", city, weatherApiKey);
-                            Console.WriteLine("url {0}",url);
-                            WebRequest request = WebRequest.Create(url);
-                            WebResponse response = request.GetResponse();
-                            using (var streamReader = new StreamReader(response.GetResponseStream()))
-                            {
-                                string responseString = streamReader.ReadToEnd();
-
-                                Console.WriteLine(responseString);
-                                JObject joResponse = JObject.Parse(responseString);
-                                JObject main = (JObject)joResponse["main"];
-                                double temp = (double)main["temp"];
-                                JObject weather = (JObject)joResponse["weather"][0];
-                                string description = (string)weather["description"];
-                                string cityName = (string)joResponse["name"];
-
-                                Console.WriteLine(string.Format("temp is: {0}", temp));
-
-                                var message = "In " + cityName + " " + description + " and the temperature is " + temp.ToString("+#;-#") + "°C";
-
-                                var t = await bot.SendTextMessage(update.Message.Chat.Id, message);
-                                Console.WriteLine("Echo Message: {0}", message);
-                            }
+                            ResponceService service = new ResponceService(inputMessage, url, new WeatherEntity());
+                            var message = service.GetResponse();
+                            var t = await bot.SendTextMessage(update.Message.Chat.Id, message);
                         }
                         else
                         {
@@ -95,6 +62,7 @@ namespace BecomeSolid.Day1
                             var t = await bot.SendTextMessage(update.Message.Chat.Id, update.Message.Text);
                             Console.WriteLine("Echo Message: {0}", update.Message.Text);
                         }
+
                     }
 
                     offset = update.Id + 1;
@@ -103,5 +71,8 @@ namespace BecomeSolid.Day1
                 await Task.Delay(1000);
             }
         }
+
+           
     }
+
 }
