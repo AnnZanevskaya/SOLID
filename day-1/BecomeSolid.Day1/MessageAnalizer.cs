@@ -10,7 +10,7 @@ namespace BecomeSolid.Day1
 {
     public class MessageAnalizer
     {
-        public string Url { get;private set; }
+        public string Url { get; private set; }
         public IEntity Entity { get; private set; }
         public bool CommandExist { get; private set; }
         private readonly List<string> commandsList = new List<string>()
@@ -18,6 +18,8 @@ namespace BecomeSolid.Day1
                 "/weather",
                 "/currency"
             };
+        // + нужно что-то связанное с Url.. если передали Url, используем, нет, берем по умолчанию
+        // + для команд - значение по умолчанию, передали - используем, нет, по умолчанию
         public MessageAnalizer(string message)
         {
             CommandExist = true;
