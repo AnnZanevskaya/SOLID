@@ -21,10 +21,10 @@ namespace BecomeSolid.Day1
         public MessageAnalizer(string message)
         {
             CommandExist = true;
+            var messageParts = message.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             if (message.StartsWith(commandsList[0]))
             {
                 var weatherApiKey = "ec259b32688dc1c1d087ebc30cbff9ed";
-                var messageParts = message.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                 var city = messageParts.Length == 1 ? "Minsk" : messageParts.Skip(1).First();
                 WebUtility.UrlEncode(city);
 
@@ -33,7 +33,6 @@ namespace BecomeSolid.Day1
             }
             else if (message.StartsWith(commandsList[1]))
             {
-                var messageParts = message.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
                 var currency = messageParts.Length == 1 ? "USD" : messageParts.Skip(1).First();
 
                 Url =
