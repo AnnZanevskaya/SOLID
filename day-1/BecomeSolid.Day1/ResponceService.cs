@@ -12,12 +12,10 @@ namespace BecomeSolid.Day1
 {
     public class ResponceService
     {
-        private string InputMessage { get; set; }
         private string Url { get; set; }
         private readonly IEntity entity;
-        public ResponceService(string inputMessage, string url, IEntity entity)
+        public ResponceService(string url, IEntity entity)
         {
-            InputMessage = inputMessage;
             Url = url;
             this.entity = entity;
         }

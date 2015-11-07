@@ -72,6 +72,7 @@
     <Compile Include="Entity\CurrencyEntity.cs" />
     <Compile Include="Info\CurrencyInfo.cs" />
     <Compile Include="Entity\IEntity.cs" />
+    <Compile Include="MessageAnalizer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResponceService.cs" />
