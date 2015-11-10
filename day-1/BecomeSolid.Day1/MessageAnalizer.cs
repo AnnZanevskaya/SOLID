@@ -48,7 +48,7 @@ namespace BecomeSolid.Day1
             }
             else if (message.StartsWith(commandsList[2]))
             {
-                Url = messageParts.Length == 1 ? "your name" : message.Substring(3); 
+                Url = messageParts.Length == 1 ? "your name" : String.Concat(message.Skip(1));
                 Entity = new AIEntity();                            
             }
             else
