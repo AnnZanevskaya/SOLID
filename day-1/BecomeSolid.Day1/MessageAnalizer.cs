@@ -48,7 +48,7 @@ namespace BecomeSolid.Day1
             }
             else if (message.StartsWith(commandsList[2]))
             {
-                Url = messageParts.Length == 1 ? "your name" : message.Substring(3); //прикидываемся, что команда это url - ниоч // Substring :C
+                Url = messageParts.Length == 1 ? "your name" : message.Substring(3); 
                 Entity = new AIEntity();                            
             }
             else
