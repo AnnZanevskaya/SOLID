@@ -8,7 +8,7 @@ namespace BecomeSolid.Day1.Commands
 {
     public class CommandsDictionary
     {
-        private Dictionary<string, ICommand> dictionary;
+        private readonly Dictionary<string, ICommand> dictionary;
 
         public CommandsDictionary()
         {
@@ -25,9 +25,14 @@ namespace BecomeSolid.Day1.Commands
             dictionary.Remove(keyword);
         }
 
+        public ICommand GetCommandIfExist(string keyword)
+        {
+            return dictionary.FirstOrDefault(dict => dict.Key == keyword).Value;
+        }
+
         public bool IsCommandExist(string keyword)
         {
-           return dictionary.ContainsKey(keyword);
+            return dictionary.ContainsKey(keyword);
         }
     }
 }

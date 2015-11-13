@@ -19,7 +19,8 @@ namespace BecomeSolid.Day1
         {
             Run().Wait();
         }
-
+        //как у него но без проверки на апликэйбл. т.к. всегда что нибудь да выполним
+        //без внешнего дикшинари
         private static async Task Run()
         {
             var bot = new Api("172034659:AAEh0DUUKUjNhoLX6LChwafGcWFB7AgSuPY");
@@ -38,7 +39,7 @@ namespace BecomeSolid.Day1
                     if (update.Message.Type == MessageType.TextMessage)
                     {
                         var inputMessage = update.Message.Text;
-
+                        var isTextMessage = update.Message.Type == MessageType.TextMessage;
                         MessageAnalizer analizer = new MessageAnalizer(inputMessage);
 
                         if (analizer.CommandExist)
