@@ -27,7 +27,7 @@ namespace BecomeSolid.Day1.Commands
 
         public bool IsCommandExist(string keyword)
         {
-            dictionary.ContainsKey(keyword);
+           return dictionary.ContainsKey(keyword);
         }
     }
 }
