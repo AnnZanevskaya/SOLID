@@ -25,7 +25,7 @@ namespace BecomeSolid.Day1
         {
             var bot = new Api("172034659:AAEh0DUUKUjNhoLX6LChwafGcWFB7AgSuPY");
             var me = await bot.GetMe();
-            CommandsDictionary dictionary = new CommandsDictionary();
+            CommandsDictionary dictionary = new CommandsDictionary(bot);
             dictionary.AddCommand("/weather", new WeatherCommand(bot));
            
             Console.WriteLine("Hello my name is {0}", me.Username);

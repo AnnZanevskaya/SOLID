@@ -7,7 +7,7 @@ using BecomeSolid.Day1.Entity;
 
 namespace BecomeSolid.Day1.Service
 {
-    interface IService<T> where T: IEntity
+    interface IService<out T> where T: IEntity
     {
         T GetInformation(string keyForInformathion);
     }

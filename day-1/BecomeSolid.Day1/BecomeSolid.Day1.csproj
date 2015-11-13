@@ -76,6 +76,7 @@
     <Compile Include="Entity\AiCommand.cs" />
     <Compile Include="Entity\CurrencyEntity.cs" />
     <Compile Include="Entity\IEntity.cs" />
+    <Compile Include="Entity\WeatherEntity.cs" />
     <Compile Include="Info\CurrencyInfo.cs" />
     <Compile Include="Entity\ICommand.cs" />
     <Compile Include="MessageAnalizer.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Entity\WeatherCommand.cs" />
     <Compile Include="Info\WeatherInfo.cs" />
     <Compile Include="Service\IService.cs" />
+    <Compile Include="Service\WeatherService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
