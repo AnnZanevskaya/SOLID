@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using BecomeSolid.Day1.Commands;
 using Newtonsoft.Json.Linq;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -25,7 +26,9 @@ namespace BecomeSolid.Day1
         {
             var bot = new Api("172034659:AAEh0DUUKUjNhoLX6LChwafGcWFB7AgSuPY");
             var me = await bot.GetMe();
-
+            CommandsDictionary dictionary = new CommandsDictionary();
+            dictionary.AddCommand("/weather", new WeatherCommand(bot));
+           
             Console.WriteLine("Hello my name is {0}", me.Username);
 
             var offset = 0;
@@ -36,26 +39,30 @@ namespace BecomeSolid.Day1
 
                 foreach (var update in updates)
                 {
-                    if (update.Message.Type == MessageType.TextMessage)
-                    {
-                        var inputMessage = update.Message.Text;
-                        var isTextMessage = update.Message.Type == MessageType.TextMessage;
-                        MessageAnalizer analizer = new MessageAnalizer(inputMessage);
+                    ICommand command = dictionary.GetCommandIfExist(update.Message.Text);
+                    command.Execute(update);
 
-                        if (analizer.CommandExist)
-                        {
-                            ResponceService service = new ResponceService(analizer.Url, analizer.Command);
-                            var message = service.GetResponse();
-                            var t = await bot.SendTextMessage(update.Message.Chat.Id, message);
-                        }
-                        else
-                        {
-                            await bot.SendChatAction(update.Message.Chat.Id, ChatAction.Typing);
-                            await Task.Delay(2000);
-                            var t = await bot.SendTextMessage(update.Message.Chat.Id, update.Message.Text);
-                            Console.WriteLine("Echo Message: {0}", update.Message.Text);
-                        }
-                    }
+
+                    //if (update.Message.Type == MessageType.TextMessage)
+                    //{
+                    //    var inputMessage = update.Message.Text;
+                    //    var isTextMessage = update.Message.Type == MessageType.TextMessage;
+                    //    MessageAnalizer analizer = new MessageAnalizer(inputMessage);
+
+                    //    if (analizer.CommandExist)
+                    //    {
+                    //        ResponceService service = new ResponceService(analizer.Url, analizer.Command);
+                    //        var message = service.GetResponse();
+                    //        var t = await bot.SendTextMessage(update.Message.Chat.Id, message);
+                    //    }
+                    //    else
+                    //    {
+                    //        await bot.SendChatAction(update.Message.Chat.Id, ChatAction.Typing);
+                    //        await Task.Delay(2000);
+                    //        var t = await bot.SendTextMessage(update.Message.Chat.Id, update.Message.Text);
+                    //        Console.WriteLine("Echo Message: {0}", update.Message.Text);
+                    //    }
+                    //}
                     offset = update.Id + 1;
                 }
             }

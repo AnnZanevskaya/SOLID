@@ -70,7 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\CommandsDictionary.cs" />
+    <Compile Include="Commands\DefaultCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\WeatherCommand.cs" />
     <Compile Include="Entity\AiCommand.cs" />
     <Compile Include="Entity\CurrencyEntity.cs" />
     <Compile Include="Info\CurrencyInfo.cs" />

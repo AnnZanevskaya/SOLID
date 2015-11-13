@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Telegram.Bot;
 
 namespace BecomeSolid.Day1.Commands
 {
     public class CommandsDictionary
     {
         private readonly Dictionary<string, ICommand> dictionary;
+        private readonly Api api;
 
-        public CommandsDictionary()
+        public CommandsDictionary(Api api)
         {
-            dictionary = new Dictionary<string, ICommand>();
+            this.api = api;
+
+            dictionary = new Dictionary<string, ICommand>()
+            {
+               {"/default", new DefaultCommand(api)} 
+            };
         }
 
         public void AddCommand(string keyword, ICommand command)
@@ -27,10 +34,12 @@ namespace BecomeSolid.Day1.Commands
 
         public ICommand GetCommandIfExist(string keyword)
         {
-            return dictionary.FirstOrDefault(dict => dict.Key == keyword).Value;
+            if (IsCommandExist(keyword))
+                return dictionary.FirstOrDefault(dict => dict.Key == keyword).Value;
+            return dictionary.First().Value;
         }
 
-        public bool IsCommandExist(string keyword)
+        private bool IsCommandExist(string keyword)
         {
             return dictionary.ContainsKey(keyword);
         }

@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 
 namespace BecomeSolid.Day1
 {
-   public class WeatherCommand: ICommand
+   public class WeatherCommand2: ICommand2
     {
        public string GetInfo(WebResponse response)
         {
