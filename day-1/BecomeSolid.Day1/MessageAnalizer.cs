@@ -12,7 +12,7 @@ namespace BecomeSolid.Day1
     public class MessageAnalizer
     {
         public string Url { get; private set; }
-        public IEntity Entity { get; private set; }
+        public ICommand Command { get; private set; }
         public bool CommandExist { get; private set; }
 
         private readonly List<string> commandsList = new List<string>()
@@ -34,7 +34,7 @@ namespace BecomeSolid.Day1
                 WebUtility.UrlEncode(city);
 
                 Url = string.Format("http://api.openweathermap.org/data/2.5/weather?q={0}&APPID={1}&units=metric", city, weatherApiKey);
-                Entity = new WeatherEntity();
+                Command = new WeatherCommand();
             }
             else if (message.StartsWith(commandsList[1]))
             {
@@ -44,12 +44,12 @@ namespace BecomeSolid.Day1
                     String.Format(
                         "https://query.yahooapis.com/v1/public/yql?q=select+*+from+yahoo.finance.xchange+where+pair+=+%22{0}BYR%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=",
                         currency);
-                Entity = new CurrencyEntity();
+                Command = new CurrencyCommand();
             }
             else if (message.StartsWith(commandsList[2]))
             {
-                Url = messageParts.Length == 1 ? "your name" : message.Substring(3); //прикидываемся, что команда это url - ниоч // Substring :C
-                Entity = new AIEntity();                            
+                Url = messageParts.Length == 1 ? "your name" : String.Concat(message.Skip(1)); //прикидываемся, что команда это url - ниоч // Substring :C
+                Command = new AiCommand();                            
             }
             else
                 CommandExist = false;

@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 
 namespace BecomeSolid.Day1
 {
-   public class CurrencyEntity: IEntity
+   public class CurrencyCommand: ICommand
     {
 
         public string GetInfo(System.Net.WebResponse response)

@@ -7,7 +7,7 @@ using Telegram.Bot;
 
 namespace BecomeSolid.Day1.Entity
 {
-    public class AIEntity : IEntity
+    public class AiCommand : ICommand
     {
         public string GetInfo(System.Net.WebResponse response)
         {
@@ -23,13 +23,13 @@ namespace BecomeSolid.Day1.Entity
             else if (response.Contains("weather"))
             {
                 MessageAnalizer analizer = new MessageAnalizer("/weather");
-                ResponceService service = new ResponceService(analizer.Url, analizer.Entity);
+                ResponceService service = new ResponceService(analizer.Url, analizer.Command);
                 return service.GetResponse();
             }
             else if (response.Contains("currency"))
             {
                 MessageAnalizer analizer = new MessageAnalizer("/currency");
-                ResponceService service = new ResponceService(analizer.Url, analizer.Entity);
+                ResponceService service = new ResponceService(analizer.Url, analizer.Command);
                 return service.GetResponse();
             }
             return response;

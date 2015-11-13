@@ -43,7 +43,7 @@ namespace BecomeSolid.Day1
 
                         if (analizer.CommandExist)
                         {
-                            ResponceService service = new ResponceService(analizer.Url, analizer.Entity);
+                            ResponceService service = new ResponceService(analizer.Url, analizer.Command);
                             var message = service.GetResponse();
                             var t = await bot.SendTextMessage(update.Message.Chat.Id, message);
                         }

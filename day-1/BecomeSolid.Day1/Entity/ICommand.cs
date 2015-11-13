@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BecomeSolid.Day1
 {
-    public interface IEntity
+    public interface ICommand
     {
         string GetInfo(WebResponse response);
         string GetInfo(string response);

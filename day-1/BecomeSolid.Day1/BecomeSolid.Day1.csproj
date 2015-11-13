@@ -69,15 +69,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\AIEntity.cs" />
+    <Compile Include="Commands\CommandsDictionary.cs" />
+    <Compile Include="Entity\AiCommand.cs" />
     <Compile Include="Entity\CurrencyEntity.cs" />
     <Compile Include="Info\CurrencyInfo.cs" />
-    <Compile Include="Entity\IEntity.cs" />
+    <Compile Include="Entity\ICommand.cs" />
     <Compile Include="MessageAnalizer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResponceService.cs" />
-    <Compile Include="Entity\WeatherEntity.cs" />
+    <Compile Include="Entity\WeatherCommand.cs" />
     <Compile Include="Info\WeatherInfo.cs" />
   </ItemGroup>
   <ItemGroup>

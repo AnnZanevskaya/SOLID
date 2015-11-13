@@ -13,11 +13,11 @@ namespace BecomeSolid.Day1
     public class ResponceService
     {
         private string Url { get; set; }
-        private readonly IEntity entity;
-        public ResponceService(string url, IEntity entity)
+        private readonly ICommand _command;
+        public ResponceService(string url, ICommand _command)
         {
             Url = url;
-            this.entity = entity;
+            this._command = _command;
         }
 
         public string GetResponse()
@@ -27,10 +27,10 @@ namespace BecomeSolid.Day1
             {
                 WebRequest request = WebRequest.Create(Url);
                 WebResponse response = request.GetResponse();
-                info = entity.GetInfo(response);
+                info = _command.GetInfo(response);
             }
             else
-                info = entity.GetInfo(Url);
+                info = _command.GetInfo(Url);
             return info;
         }
     }
