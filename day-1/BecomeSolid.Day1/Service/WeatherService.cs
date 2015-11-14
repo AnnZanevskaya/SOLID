@@ -16,7 +16,6 @@ namespace BecomeSolid.Day1.Service
         private string weatherApiKey = "ec259b32688dc1c1d087ebc30cbff9ed";
         public WeatherEntity GetInformation(string keyForInformathion)
         {
-
             var messageParts = keyForInformathion.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             var city = messageParts.Length == 1 ? "Minsk" : messageParts.Skip(1).First();
 

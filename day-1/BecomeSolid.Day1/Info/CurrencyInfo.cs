@@ -8,7 +8,7 @@ namespace BecomeSolid.Day1
 {
     public class Rate
     {
-        public string id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string RateCurrency { get; set; }
         public string Date { get; set; }
@@ -19,19 +19,19 @@ namespace BecomeSolid.Day1
 
     public class Results
     {
-        public List<Rate> rate { get; set; }
+        public List<Rate> Rate { get; set; }
     }
 
     public class Query
     {
-        public int count { get; set; }
-        public string created { get; set; }
-        public string lang { get; set; }
-        public Results results { get; set; }
+        public int Count { get; set; }
+        public string Created { get; set; }
+        public string Lang { get; set; }
+        public Results Results { get; set; }
     }
 
-    public class RootObjectCurrency
+    public class CurrencyResponce
     {
-        public Query query { get; set; }
+        public Query Query { get; set; }
     }
 }

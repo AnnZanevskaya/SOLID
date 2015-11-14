@@ -11,27 +11,26 @@ using Telegram.Bot.Types;
 
 namespace BecomeSolid.Day1.Commands
 {
-    public class WeatherCommand<T>  : ICommand where T:IEntity
+    public class CurrencyCommand<T> : ICommand where T : IEntity
     {
         private readonly Api api;
         private readonly IService<T> service;
         private readonly IMessageBuilder<T> builder;
 
-        public WeatherCommand(Api api,IService<T> service, IMessageBuilder<T> builder)
+        public CurrencyCommand(Api api, IService<T> service, IMessageBuilder<T> builder)
         {
             this.builder = builder;
             this.service = service;
-            this.api = api;
+            this.api = api;   
         }
         public async void Execute(Update context)
         {
-            T weatherInfo = service.GetInformation(context.Message.Text);
+            T currencyInfo = service.GetInformation(context.Message.Text);
 
-            string response = builder.Build(weatherInfo);
+            string response = builder.Build(currencyInfo);
 
             var t = await api.SendTextMessage(context.Message.Chat.Id, response);
             Console.WriteLine("Echo Message: {0}", response);
         }
-
     }
 }
