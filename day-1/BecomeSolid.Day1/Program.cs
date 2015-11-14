@@ -45,28 +45,6 @@ namespace BecomeSolid.Day1
                 {
                   ICommand command = dictionary.GetCommandIfExist(update.Message.Text.Split(' ')[0]); //fu
                   command.Execute(update);
-
-
-                    //if (update.Message.Type == MessageType.TextMessage)
-                    //{
-                    //    var inputMessage = update.Message.Text;
-                    //    var isTextMessage = update.Message.Type == MessageType.TextMessage;
-                    //    MessageAnalizer analizer = new MessageAnalizer(inputMessage);
-
-                    //    if (analizer.CommandExist)
-                    //    {
-                    //        ResponceService service = new ResponceService(analizer.Url, analizer.Command);
-                    //        var message = service.GetResponse();
-                    //        var t = await bot.SendTextMessage(update.Message.Chat.Id, message);
-                    //    }
-                    //    else
-                    //    {
-                    //        await bot.SendChatAction(update.Message.Chat.Id, ChatAction.Typing);
-                    //        await Task.Delay(2000);
-                    //        var t = await bot.SendTextMessage(update.Message.Chat.Id, update.Message.Text);
-                    //        Console.WriteLine("Echo Message: {0}", update.Message.Text);
-                    //    }
-                    //}
                     offset = update.Id + 1;
                 }
             }
