@@ -11,13 +11,13 @@ using Telegram.Bot.Types;
 
 namespace BecomeSolid.Day1.Commands
 {
-    public class WeatherCommand : ICommand
+    public class WeatherCommand<T>  : ICommand where T:IEntity
     {
         private readonly Api api;
-        private readonly IService<IEntity> service;
-        private readonly IMessageBuilder<IEntity> builder;
+        private readonly IService<T> service;
+        private readonly IMessageBuilder<T> builder;
 
-        public WeatherCommand(Api api, IMessageBuilder<IEntity> builder, IService<IEntity> service )
+        public WeatherCommand(Api api, IMessageBuilder<T> builder, IService<T> service )
         {
             this.builder = builder;
             this.service = service;
@@ -25,7 +25,7 @@ namespace BecomeSolid.Day1.Commands
         }
         public async void Execute(Update context)
         {
-            IEntity weatherInfo = service.GetInformation(context.Message.Text);
+            T weatherInfo = service.GetInformation(context.Message.Text);
 
             string response = builder.Build(weatherInfo);
 

@@ -30,7 +30,7 @@ namespace BecomeSolid.Day1
             var me = await bot.GetMe();
             CommandsDictionary dictionary = new CommandsDictionary(bot);
   
-           dictionary.AddCommand("/weather", new WeatherCommand(bot, new WeatherBuilder(), new WeatherService()));
+           dictionary.AddCommand("/weather", new WeatherCommand<IEntity>(bot, new WeatherBuilder(), new WeatherService()));
             Console.WriteLine("Hello my name is {0}", me.Username);
 
             var offset = 0;
