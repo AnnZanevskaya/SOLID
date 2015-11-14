@@ -79,15 +79,12 @@
     <Compile Include="Commands\DefaultCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\WeatherCommand.cs" />
-    <Compile Include="Entity\AiCommand.cs" />
     <Compile Include="Entity\CurrencyEntity.cs" />
     <Compile Include="Entity\IEntity.cs" />
     <Compile Include="Entity\WeatherEntity.cs" />
     <Compile Include="Info\CurrencyInfo.cs" />
-    <Compile Include="MessageAnalizer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResponceService.cs" />
     <Compile Include="Info\WeatherInfo.cs" />
     <Compile Include="Service\CurrencyService.cs" />
     <Compile Include="Service\IService.cs" />

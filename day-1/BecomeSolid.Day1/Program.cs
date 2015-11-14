@@ -28,7 +28,6 @@ namespace BecomeSolid.Day1
         private static async Task Run()
         {
             TelegramBot bot = new TelegramBot(new Api("172034659:AAEh0DUUKUjNhoLX6LChwafGcWFB7AgSuPY"));
-           // var bot = new Api("172034659:AAEh0DUUKUjNhoLX6LChwafGcWFB7AgSuPY");
             var me = await bot.BotApi.GetMe();
             CommandsDictionary dictionary = new CommandsDictionary(bot);
 
