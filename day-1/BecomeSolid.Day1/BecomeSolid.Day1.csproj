@@ -70,7 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builder\IMessageBuilder.cs" />
-    <Compile Include="Builder\MessageBuilder.cs" />
     <Compile Include="Builder\WeatherBuilder.cs" />
     <Compile Include="Commands\CommandsDictionary.cs" />
     <Compile Include="Commands\DefaultCommand.cs" />
