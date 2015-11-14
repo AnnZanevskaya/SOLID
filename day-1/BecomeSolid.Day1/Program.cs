@@ -1,23 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using BecomeSolid.Day1.BotContainer;
 using BecomeSolid.Day1.Builder;
 using BecomeSolid.Day1.Commands;
 using BecomeSolid.Day1.Entity;
 using BecomeSolid.Day1.Service;
-using Newtonsoft.Json.Linq;
 using Telegram.Bot;
-using Telegram.Bot.Types;
-using File = System.IO.File;
 
 namespace BecomeSolid.Day1
 {
-
     internal class Program
     {
         private static void Main(string[] args)
