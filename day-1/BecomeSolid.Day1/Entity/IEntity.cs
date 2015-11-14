@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BecomeSolid.Day1.Entity
 {
-    interface IEntity
+   public interface IEntity
     {
         string Name { get; set; }
     }

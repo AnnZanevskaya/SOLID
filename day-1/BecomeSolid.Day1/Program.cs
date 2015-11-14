@@ -5,7 +5,10 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using BecomeSolid.Day1.Builder;
 using BecomeSolid.Day1.Commands;
+using BecomeSolid.Day1.Entity;
+using BecomeSolid.Day1.Service;
 using Newtonsoft.Json.Linq;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -26,8 +29,8 @@ namespace BecomeSolid.Day1
             var bot = new Api("172034659:AAEh0DUUKUjNhoLX6LChwafGcWFB7AgSuPY");
             var me = await bot.GetMe();
             CommandsDictionary dictionary = new CommandsDictionary(bot);
-            dictionary.AddCommand("/weather", new WeatherCommand(bot));
-           
+  
+           dictionary.AddCommand("/weather", new WeatherCommand(bot, new WeatherBuilder(), new WeatherService()));
             Console.WriteLine("Hello my name is {0}", me.Username);
 
             var offset = 0;

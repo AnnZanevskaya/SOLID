@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BecomeSolid.Day1.Builder;
 using BecomeSolid.Day1.Entity;
 using BecomeSolid.Day1.Service;
 using Telegram.Bot;
@@ -13,19 +14,20 @@ namespace BecomeSolid.Day1.Commands
     public class WeatherCommand : ICommand
     {
         private readonly Api api;
+        private readonly IService<IEntity> service;
+        private readonly IMessageBuilder<IEntity> builder;
 
-        IService<WeatherEntity> service = new WeatherService(); //#savekitten
-
-        public WeatherCommand(Api api)
+        public WeatherCommand(Api api, IMessageBuilder<IEntity> builder, IService<IEntity> service )
         {
+            this.builder = builder;
+            this.service = service;
             this.api = api;
         }
         public async void Execute(Update context)
         {
+            IEntity weatherInfo = service.GetInformation(context.Message.Text);
 
-            WeatherEntity weatherInfo = service.GetInformation(context.Message.Text);
-
-            string response = String.Format("Hi " + weatherInfo.Name + " in "+weatherInfo.Description + " temp " + weatherInfo.Temperature);
+            string response = builder.Build(weatherInfo);
 
             var t = await api.SendTextMessage(context.Message.Chat.Id, response);
             Console.WriteLine("Echo Message: {0}", response);
