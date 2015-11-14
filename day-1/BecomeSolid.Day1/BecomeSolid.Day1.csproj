@@ -69,6 +69,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BotContainer\IBotContainer.cs" />
+    <Compile Include="BotContainer\TelegramBot.cs" />
     <Compile Include="Builder\CurrencyBuilder.cs" />
     <Compile Include="Builder\IMessageBuilder.cs" />
     <Compile Include="Builder\WeatherBuilder.cs" />

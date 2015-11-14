@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BecomeSolid.Day1.BotContainer;
 using BecomeSolid.Day1.Builder;
 using BecomeSolid.Day1.Entity;
 using Telegram.Bot;
@@ -13,9 +14,9 @@ namespace BecomeSolid.Day1.Commands
     public class DefaultCommand: ICommand
     {
         private readonly Api api;
-        public DefaultCommand(Api api)
+        public DefaultCommand(IBotContainer bot)
         {
-            this.api = api;
+            this.api = bot.BotApi;
         }
         public async void Execute(Update context)
         {

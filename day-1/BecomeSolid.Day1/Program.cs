@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using BecomeSolid.Day1.BotContainer;
 using BecomeSolid.Day1.Builder;
 using BecomeSolid.Day1.Commands;
 using BecomeSolid.Day1.Entity;
@@ -26,8 +27,9 @@ namespace BecomeSolid.Day1
 
         private static async Task Run()
         {
-            var bot = new Api("172034659:AAEh0DUUKUjNhoLX6LChwafGcWFB7AgSuPY");
-            var me = await bot.GetMe();
+            TelegramBot bot = new TelegramBot(new Api("172034659:AAEh0DUUKUjNhoLX6LChwafGcWFB7AgSuPY"));
+           // var bot = new Api("172034659:AAEh0DUUKUjNhoLX6LChwafGcWFB7AgSuPY");
+            var me = await bot.BotApi.GetMe();
             CommandsDictionary dictionary = new CommandsDictionary(bot);
 
             dictionary.AddCommand("/weather", new WeatherCommand<WeatherEntity>(bot, new WeatherService(), new WeatherBuilder()));
@@ -38,11 +40,11 @@ namespace BecomeSolid.Day1
 
             while (true)
             {
-                var updates = await bot.GetUpdates(offset);
+                var updates = await bot.BotApi.GetUpdates(offset);
 
                 foreach (var update in updates)
                 {
-                  ICommand command = dictionary.GetCommandIfExist(update.Message.Text.Split(' ')[0]);
+                  ICommand command = dictionary.GetCommandIfExist(update.Message.Text.Split(' ')[0]); //fu
                   command.Execute(update);
 
 

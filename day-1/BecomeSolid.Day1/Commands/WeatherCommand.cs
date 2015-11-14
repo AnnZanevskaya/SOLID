@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BecomeSolid.Day1.BotContainer;
 using BecomeSolid.Day1.Builder;
 using BecomeSolid.Day1.Entity;
 using BecomeSolid.Day1.Service;
@@ -17,11 +18,11 @@ namespace BecomeSolid.Day1.Commands
         private readonly IService<T> service;
         private readonly IMessageBuilder<T> builder;
 
-        public WeatherCommand(Api api,IService<T> service, IMessageBuilder<T> builder)
+        public WeatherCommand(IBotContainer bot,IService<T> service, IMessageBuilder<T> builder)
         {
             this.builder = builder;
             this.service = service;
-            this.api = api;
+            this.api = bot.BotApi;
         }
         public async void Execute(Update context)
         {

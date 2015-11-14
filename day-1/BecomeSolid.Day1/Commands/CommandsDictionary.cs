@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BecomeSolid.Day1.BotContainer;
 using Telegram.Bot;
 
 namespace BecomeSolid.Day1.Commands
@@ -10,15 +11,15 @@ namespace BecomeSolid.Day1.Commands
     public class CommandsDictionary
     {
         private readonly Dictionary<string, ICommand> dictionary;
-        private readonly Api api;
+        private readonly IBotContainer bot;
 
-        public CommandsDictionary(Api api)
+        public CommandsDictionary(IBotContainer bot)
         {
-            this.api = api;
+            this.bot = bot;
 
             dictionary = new Dictionary<string, ICommand>()
             {
-               {"/default", new DefaultCommand(api)} 
+               {"/default", new DefaultCommand(bot)} 
             };
         }
 
