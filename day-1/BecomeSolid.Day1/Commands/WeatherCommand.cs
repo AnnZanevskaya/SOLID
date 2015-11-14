@@ -17,7 +17,7 @@ namespace BecomeSolid.Day1.Commands
         private readonly IService<T> service;
         private readonly IMessageBuilder<T> builder;
 
-        public WeatherCommand(Api api, IMessageBuilder<T> builder, IService<T> service )
+        public WeatherCommand(Api api,IService<T> service, IMessageBuilder<T> builder )
         {
             this.builder = builder;
             this.service = service;
