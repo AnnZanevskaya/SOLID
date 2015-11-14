@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BecomeSolid.Day1.Builder;
+using BecomeSolid.Day1.Entity;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
@@ -15,9 +17,10 @@ namespace BecomeSolid.Day1.Commands
         {
             this.api = api;
         }
-        public void Execute(Update context)
+        public async void Execute(Update context)
         {
-            throw new NotImplementedException();
+            var t = await api.SendTextMessage(context.Message.Chat.Id, context.Message.Text);
+            Console.WriteLine("Echo Message: {0}", context.Message.Text);
         }
     }
 }
