@@ -42,8 +42,8 @@ namespace BecomeSolid.Day1
 
                 foreach (var update in updates)
                 {
-                    ICommand command = dictionary.GetCommandIfExist(update.Message.Text);
-                    command.Execute(update);
+                  ICommand command = dictionary.GetCommandIfExist(update.Message.Text.Split(' ')[0]);
+                  command.Execute(update);
 
 
                     //if (update.Message.Type == MessageType.TextMessage)
