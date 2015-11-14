@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builder\CurrencyBuilder.cs" />
     <Compile Include="Builder\IMessageBuilder.cs" />
     <Compile Include="Builder\WeatherBuilder.cs" />
     <Compile Include="Commands\CommandsDictionary.cs" />
