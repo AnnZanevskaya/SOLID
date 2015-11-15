@@ -20,6 +20,7 @@ namespace BecomeSolid.Day1.Service
 
             WebRequest request = WebRequest.Create(string.Format(url, currency));
             WebResponse response = request.GetResponse();
+
             using (var streamReader = new StreamReader(response.GetResponseStream()))
             {
                 string responseString = streamReader.ReadToEnd();

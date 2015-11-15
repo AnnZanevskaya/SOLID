@@ -4,6 +4,7 @@ using BecomeSolid.Day1.BotContainer;
 using BecomeSolid.Day1.Builder;
 using BecomeSolid.Day1.Commands;
 using BecomeSolid.Day1.Entity;
+using BecomeSolid.Day1.Helpers;
 using BecomeSolid.Day1.Service;
 using Telegram.Bot;
 
@@ -34,8 +35,9 @@ namespace BecomeSolid.Day1
 
                 foreach (var update in updates)
                 {
-                  ICommand command = dictionary.GetCommandIfExist(update.Message.Text.Split(' ')[0]); //fu
-                  command.Execute(update);
+                    ICommand command = dictionary.GetCommandIfExist(update.Message.Text.GetFirstWord());
+                    command.Execute(update);
+   
                     offset = update.Id + 1;
                 }
             }
