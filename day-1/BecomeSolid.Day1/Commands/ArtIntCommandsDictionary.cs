@@ -14,7 +14,14 @@ namespace BecomeSolid.Day1.Commands
                 {"default", "My name is Ann"}
             };
         }
-
+        public void AddCommand(string keyword, string answer)
+        {
+            dictionary.Add(keyword, answer);
+        }
+        public void RemoveCommand(string keyword)
+        {
+            dictionary.Remove(keyword);
+        }
         public string GetAswerOrDefault(string keyword)
         {
             keyword = keyword.ToLowerInvariant();

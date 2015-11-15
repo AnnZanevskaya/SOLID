@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BecomeSolid.Day1.Commands;
+﻿using BecomeSolid.Day1.Commands;
 using BecomeSolid.Day1.Entity;
 using BecomeSolid.Day1.Helpers;
 
