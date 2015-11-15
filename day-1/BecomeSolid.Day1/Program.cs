@@ -25,6 +25,7 @@ namespace BecomeSolid.Day1
 
             dictionary.AddCommand("/weather", new WeatherCommand<WeatherEntity>(bot, new WeatherService(), new WeatherBuilder()));
             dictionary.AddCommand("/currency", new CurrencyCommand<CurrencyEntity>(bot, new CurrencyService(), new CurrencyBuilder()));
+            dictionary.AddCommand("/ai", new ArtIntCommand<ArtIntEntity>(bot, new ArtIntBuilder(), new ArtIntService()));
             Console.WriteLine("Hello my name is {0}", me.Username);
 
             var offset = 0;

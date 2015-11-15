@@ -75,14 +75,17 @@
   <ItemGroup>
     <Compile Include="BotContainer\IBotContainer.cs" />
     <Compile Include="BotContainer\TelegramBot.cs" />
+    <Compile Include="Builder\ArtIntBuilder.cs" />
     <Compile Include="Builder\CurrencyBuilder.cs" />
     <Compile Include="Builder\IMessageBuilder.cs" />
     <Compile Include="Builder\WeatherBuilder.cs" />
+    <Compile Include="Commands\ArtIntCommand.cs" />
     <Compile Include="Commands\CommandsDictionary.cs" />
     <Compile Include="Commands\CurrencyCommand.cs" />
     <Compile Include="Commands\DefaultCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\WeatherCommand.cs" />
+    <Compile Include="Entity\ArtIntEntity.cs" />
     <Compile Include="Entity\CurrencyEntity.cs" />
     <Compile Include="Entity\IEntity.cs" />
     <Compile Include="Entity\WeatherEntity.cs" />
@@ -92,6 +95,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Info\WeatherInfo.cs" />
+    <Compile Include="Service\ArtIntService.cs" />
     <Compile Include="Service\CurrencyService.cs" />
     <Compile Include="Service\IService.cs" />
     <Compile Include="Service\WeatherService.cs" />

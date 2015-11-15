@@ -1,5 +1,4 @@
-﻿using System;
-using BecomeSolid.Day1.BotContainer;
+﻿using BecomeSolid.Day1.BotContainer;
 using BecomeSolid.Day1.Builder;
 using BecomeSolid.Day1.Entity;
 using BecomeSolid.Day1.Service;
@@ -8,27 +7,23 @@ using Telegram.Bot.Types;
 
 namespace BecomeSolid.Day1.Commands
 {
-    public class WeatherCommand<T>  : ICommand where T:IEntity
+    public class ArtIntCommand<T> : ICommand where T:IEntity
     {
         private readonly Api api;
-        private readonly IService<T> service;
         private readonly IMessageBuilder<T> builder;
-
-        public WeatherCommand(IBotContainer bot, IService<T> service, IMessageBuilder<T> builder)
+        private readonly IService<T> service; 
+        public ArtIntCommand(IBotContainer bot, IMessageBuilder<T> builder, IService<T> service)
         {
             this.builder = builder;
+            api = bot.BotApi;
             this.service = service;
-            this.api = bot.BotApi;
         }
         public async void Execute(Update context)
         {
-            T weatherInfo = service.GetInformation(context.Message.Text);
-
-            string response = builder.Build(weatherInfo);
+            T artIntInfo = service.GetInformation(context.Message.Text);
+            string response = builder.Build(artIntInfo);
 
             var t = await api.SendTextMessage(context.Message.Chat.Id, response);
-            Console.WriteLine("Echo Message: {0}", response);
         }
-
     }
 }

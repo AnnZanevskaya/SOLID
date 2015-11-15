@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BecomeSolid.Day1.Entity;
-using Newtonsoft.Json.Linq;
+﻿using BecomeSolid.Day1.Entity;
+
 
 namespace BecomeSolid.Day1
 {
-
     public class CurrencyEntity : IEntity
     {
         public string Name { get; set; }

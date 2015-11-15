@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BecomeSolid.Day1.Entity;
-using BecomeSolid.Day1.Service;
+﻿using BecomeSolid.Day1.Entity;
 
 namespace BecomeSolid.Day1.Builder
 {
