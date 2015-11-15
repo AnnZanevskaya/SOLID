@@ -16,7 +16,9 @@ namespace BecomeSolid.Day1.Helpers
             int index = word.IndexOf(' ');
             if (index == -1)
                 return defaulValue;
-            return word.Substring(index + 1);
+            word = word.Substring(index + 1);
+            return word.GetFirstWord();
+
         }
 
         public static string GetWordsExeptFirst(this string words)
