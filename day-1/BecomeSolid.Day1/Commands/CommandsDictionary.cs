@@ -35,6 +35,7 @@ namespace BecomeSolid.Day1.Commands
 
         public ICommand GetCommandIfExist(string keyword)
         {
+            keyword = keyword.ToLowerInvariant();
             if (IsCommandExist(keyword))
                 return dictionary.FirstOrDefault(dict => dict.Key == keyword).Value;
             return dictionary.First().Value;

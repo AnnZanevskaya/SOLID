@@ -1,6 +1,4 @@
-﻿using System.IO;
-using System.Net;
-using BecomeSolid.Day1.Helpers;
+﻿using BecomeSolid.Day1.Helpers;
 using Newtonsoft.Json;
 
 namespace BecomeSolid.Day1.Service
@@ -17,21 +15,17 @@ namespace BecomeSolid.Day1.Service
         }
         public CurrencyEntity GetInformation(string keyForInformathion)
         {
-            WebRequest request = WebRequest.Create(string.Format(url, keyForInformathion.GetSecondWord(defaulValue: "USD")));
-            WebResponse response = request.GetResponse();
+            string responseString =
+                RestHelper.GetResponse(string.Format(url, keyForInformathion.GetSecondWord(defaulValue: "USD")));
 
-            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            var currencyResponce = JsonConvert.DeserializeObject<CurrencyResponce>(responseString);
+            var details = currencyResponce.query.results.rate;
+
+            return new CurrencyEntity()
             {
-                string responseString = streamReader.ReadToEnd();
-                var currencyResponce = JsonConvert.DeserializeObject<CurrencyResponce>(responseString);
-                var details = currencyResponce.query.results.rate;
-
-                return new CurrencyEntity()
-                {
-                    Name = details.Name,
-                    Currency = details.RateCurrency
-                };
-            }
+                Name = details.Name,
+                Currency = details.RateCurrency
+            };
         }
     }
 }

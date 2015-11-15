@@ -87,6 +87,7 @@
     <Compile Include="Entity\IEntity.cs" />
     <Compile Include="Entity\WeatherEntity.cs" />
     <Compile Include="Helpers\MessageAnalizer.cs" />
+    <Compile Include="Helpers\RestHelper.cs" />
     <Compile Include="Info\CurrencyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
