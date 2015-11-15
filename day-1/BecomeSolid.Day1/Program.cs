@@ -22,10 +22,11 @@ namespace BecomeSolid.Day1
             TelegramBot bot = new TelegramBot(new Api("172034659:AAEh0DUUKUjNhoLX6LChwafGcWFB7AgSuPY"));
             var me = await bot.BotApi.GetMe();
             CommandsDictionary dictionary = new CommandsDictionary(bot);
+            ArtIntCommandsDictionary aiDictionary = new ArtIntCommandsDictionary();
 
             dictionary.AddCommand("/weather", new WeatherCommand<WeatherEntity>(bot, new WeatherService(), new WeatherBuilder()));
             dictionary.AddCommand("/currency", new CurrencyCommand<CurrencyEntity>(bot, new CurrencyService(), new CurrencyBuilder()));
-            dictionary.AddCommand("/ai", new ArtIntCommand<ArtIntEntity>(bot, new ArtIntBuilder(), new ArtIntService()));
+            dictionary.AddCommand("/ai", new ArtIntCommand<ArtIntEntity>(bot, new ArtIntBuilder(), new ArtIntService(aiDictionary)));
             Console.WriteLine("Hello my name is {0}", me.Username);
 
             var offset = 0;

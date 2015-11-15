@@ -80,6 +80,7 @@
     <Compile Include="Builder\IMessageBuilder.cs" />
     <Compile Include="Builder\WeatherBuilder.cs" />
     <Compile Include="Commands\ArtIntCommand.cs" />
+    <Compile Include="Commands\ArtIntCommandsDictionary.cs" />
     <Compile Include="Commands\CommandsDictionary.cs" />
     <Compile Include="Commands\CurrencyCommand.cs" />
     <Compile Include="Commands\DefaultCommand.cs" />

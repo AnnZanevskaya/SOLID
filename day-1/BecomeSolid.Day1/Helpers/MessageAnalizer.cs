@@ -18,5 +18,13 @@ namespace BecomeSolid.Day1.Helpers
                 return defaulValue;
             return word.Substring(index + 1);
         }
+
+        public static string GetWordsExeptFirst(this string words)
+        {
+            int index = words.IndexOf(' ');
+            if (index == -1)
+                return words;
+            return words.Substring(index + 1);
+        }
     }
 }

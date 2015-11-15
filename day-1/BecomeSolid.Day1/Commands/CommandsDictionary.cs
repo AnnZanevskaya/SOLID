@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BecomeSolid.Day1.BotContainer;
-using Telegram.Bot;
+
 
 namespace BecomeSolid.Day1.Commands
 {
