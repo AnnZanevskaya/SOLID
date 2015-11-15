@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using BecomeSolid.Day1.Entity;
+using BecomeSolid.Day1.Helpers;
 using Newtonsoft.Json;
 
 namespace BecomeSolid.Day1.Service
@@ -16,8 +14,7 @@ namespace BecomeSolid.Day1.Service
         private string weatherApiKey = "ec259b32688dc1c1d087ebc30cbff9ed";
         public WeatherEntity GetInformation(string keyForInformathion)
         {
-            var messageParts = keyForInformathion.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            var city = messageParts.Length == 1 ? "Minsk" : messageParts.Skip(1).First();
+            string city = keyForInformathion.GetSecondWord(defaulValue: "Minsk");
 
             WebUtility.UrlEncode(city);
             WebRequest request = WebRequest.Create(string.Format(url, city, weatherApiKey));

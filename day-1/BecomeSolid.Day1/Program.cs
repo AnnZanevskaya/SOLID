@@ -35,9 +35,9 @@ namespace BecomeSolid.Day1
 
                 foreach (var update in updates)
                 {
-                    ICommand command = dictionary.GetCommandIfExist(update.Message.Text.GetFirstWord());
-                    command.Execute(update);
-   
+                   ICommand command = dictionary.GetCommandIfExist(update.Message.Text.GetFirstWord());
+                   command.Execute(update);
+
                     offset = update.Id + 1;
                 }
             }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace BecomeSolid.Day1.Helpers
 {
@@ -13,7 +9,14 @@ namespace BecomeSolid.Day1.Helpers
             if (word.IndexOf(" ") != -1)
                 return word.Substring(0, word.IndexOf(" "));
             return word;
-    
+        }
+
+        public static string GetSecondWord(this string word, string defaulValue)
+        {
+            int index = word.IndexOf(' ');
+            if (index == -1)
+                return defaulValue;
+            return word.Substring(index + 1);
         }
     }
 }
