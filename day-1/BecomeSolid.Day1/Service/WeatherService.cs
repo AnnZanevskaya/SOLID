@@ -12,6 +12,15 @@ namespace BecomeSolid.Day1.Service
     {
         private string url = "http://api.openweathermap.org/data/2.5/weather?q={0}&APPID={1}&units=metric";
         private string weatherApiKey = "ec259b32688dc1c1d087ebc30cbff9ed";
+
+        public WeatherService() {}
+        public WeatherService(string url = "",string weatherApiKey = "")
+        {
+            if (url != String.Empty && url.StartsWith("http"))
+                this.url = url;
+            if (weatherApiKey != String.Empty)
+                this.weatherApiKey = weatherApiKey;
+        }
         public WeatherEntity GetInformation(string keyForInformathion)
         {
             string city = keyForInformathion.GetSecondWord(defaulValue: "Minsk");
